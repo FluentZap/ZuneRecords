@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ZuneRecords
 {
@@ -6,7 +7,20 @@ namespace ZuneRecords
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            RecordStore StoreOne = new RecordStore();
+            StoreOne.StoreInventory.addRecord(new Record("Fleetwood Mac", "Live", 14.95f));
+
+            List<Record> recordList = StoreOne.StoreInventory.getLibrary();
+
+            foreach (Record item in recordList) 
+            {
+                Console.WriteLine(item.getAlbumArtist());
+            }
+        }
+
+        void addRecords()
+        {
+            Record one = new Record("Fleetwood Mac", "Live", 14.95f);
         }
     }
 }
